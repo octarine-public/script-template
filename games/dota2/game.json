@@ -67,5 +67,13 @@
 				"zh": "英雄移动时自动使用相位鞋，并跟踪指令直到完成。"
 			}
 		}
+	],
+	"postCreate": [
+		"cloneSdk",
+		"renderAi",
+		"gitInit",
+		"install",
+		"registerLocalScript",
+		"openEditor"
 	]
 }

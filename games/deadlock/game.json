@@ -66,5 +66,13 @@
 				"zh": "按住按键时，在第一个技能就绪后立即释放（CreateMove）。"
 			}
 		}
+	],
+	"postCreate": [
+		"cloneSdk",
+		"renderAi",
+		"gitInit",
+		"install",
+		"registerLocalScript",
+		"openEditor"
 	]
 }

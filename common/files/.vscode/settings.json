@@ -5,6 +5,7 @@
 		"typescript"
 	],
 	"editor.insertSpaces": false,
+	"npm.packageManager": "@@packageManager@@",
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"typescript.enablePromptUseWorkspaceTsdk": true,
 	"editor.formatOnSave": false,

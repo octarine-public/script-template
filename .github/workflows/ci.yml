@@ -1,0 +1,83 @@
+# Every game rendered with every feature (tools/render.mjs, as the launcher renders it) against the latest
+# public declarations of its SDK: types, lint and format, circular imports, and that every file is reachable from
+# index.ts — and that a file left unreachable is caught. On every change of the template, when an SDK publishes
+# new declarations (the game SDKs' publish workflow sends sdk-published), and once a day.
+name: CI
+
+on:
+  push:
+  pull_request:
+  repository_dispatch:
+    types: [sdk-published]
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  game:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - game: dota2
+            sdk: dota2-sdk-types
+          - game: deadlock
+            sdk: deadlock-sdk-types
+          - game: cs2
+            sdk: cs2-sdk-types
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Manifests
+        run: node -e "for (const f of ['template.json','games/dota2/game.json','games/deadlock/game.json','games/cs2/game.json']) JSON.parse(require('fs').readFileSync(f,'utf8'))"
+
+      - name: Render with every feature
+        run: node tools/render.mjs --game ${{ matrix.game }} --out "$RUNNER_TEMP/script"
+
+      - name: The SDK's latest declarations
+        run: |
+          DIR=$(node -p "require('./games/${{ matrix.game }}/game.json').sdkDir")
+          git clone --depth 1 "https://github.com/octarine-public/${{ matrix.sdk }}" "$RUNNER_TEMP/script/$DIR"
+
+      - name: Dependencies
+        working-directory: ${{ runner.temp }}/script
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Types
+        working-directory: ${{ runner.temp }}/script
+        run: npx tsc
+
+      - name: Lint and format
+        working-directory: ${{ runner.temp }}/script
+        run: npx eslint .
+
+      - name: Circular imports
+        working-directory: ${{ runner.temp }}/script
+        run: npx madge --circular --extensions ts,tsx src/index.ts
+
+      - name: Every file reachable
+        working-directory: ${{ runner.temp }}/script
+        run: node tools/check-bundle.cjs
+
+      - name: An unreachable file is caught
+        working-directory: ${{ runner.temp }}/script
+        run: |
+          sed -i '$d' src/index.ts
+          if node tools/check-bundle.cjs; then
+            echo "check-bundle took a file nothing imports"
+            exit 1
+          fi
+
+      - name: Each feature alone
+        run: |
+          for f in $(node -p "require('./games/${{ matrix.game }}/game.json').features.map(f => f.id).join(' ')"); do
+            rm -rf "$RUNNER_TEMP/one" && node tools/render.mjs --game ${{ matrix.game }} --features "$f" --out "$RUNNER_TEMP/one"
+            DIR=$(node -p "require('./games/${{ matrix.game }}/game.json').sdkDir")
+            cp -r "$RUNNER_TEMP/script/$DIR" "$RUNNER_TEMP/one/$DIR"
+            cp -r "$RUNNER_TEMP/script/node_modules" "$RUNNER_TEMP/one/node_modules"
+            (cd "$RUNNER_TEMP/one" && npx tsc && node tools/check-bundle.cjs) || { echo "feature $f alone fails"; exit 1; }
+          done

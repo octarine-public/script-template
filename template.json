@@ -1,5 +1,6 @@
 {
 	"schema": 1,
+	"minLauncher": 1,
 	"rename": {
 		"gitignore": ".gitignore",
 		"ignore": ".ignore",
@@ -19,6 +20,14 @@
 		"repositoryUrl": {
 			"max": 300,
 			"pattern": "^https://[A-Za-z0-9.-]+(:[0-9]{1,5})?(/[A-Za-z0-9_.~-]+){2,}/?$"
+		},
+		"packageManager": {
+			"choices": [
+				"npm",
+				"yarn",
+				"pnpm"
+			],
+			"default": "npm"
 		}
 	},
 	"licenses": [

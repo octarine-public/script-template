@@ -81,5 +81,13 @@
 				"zh": "按住按键时通过 UserCmdManager 向前走。默认关闭。"
 			}
 		}
+	],
+	"postCreate": [
+		"cloneSdk",
+		"renderAi",
+		"gitInit",
+		"install",
+		"registerLocalScript",
+		"openEditor"
 	]
 }
