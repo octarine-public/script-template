@@ -1,0 +1,20 @@
+{
+	"eslint.enable": true,
+	"eslint.useFlatConfig": true,
+	"eslint.validate": [
+		"typescript"
+	],
+	"editor.insertSpaces": false,
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"editor.formatOnSave": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"prettier.requireConfig": true,
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"files.eol": "\n"
+}

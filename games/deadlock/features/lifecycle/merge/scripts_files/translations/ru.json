@@ -1,0 +1,4 @@
+{
+	"Log match events": "Журнал событий матча",
+	"Writes the start and the end of a match and every hero that appears to the console": "Пишет в консоль начало и конец матча и каждого появившегося героя"
+}

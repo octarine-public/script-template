@@ -1,0 +1,5 @@
+node_modules
+scripts
+scripts_files
+@@sdkDir@@
+*.d.ts

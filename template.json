@@ -1,0 +1,49 @@
+{
+	"schema": 1,
+	"rename": {
+		"gitignore": ".gitignore",
+		"ignore": ".ignore",
+		"prettierignore": ".prettierignore"
+	},
+	"variables": {
+		"scriptName": {
+			"required": true,
+			"max": 48
+		},
+		"description": {
+			"max": 160
+		},
+		"author": {
+			"max": 64
+		},
+		"repositoryUrl": {
+			"max": 300,
+			"pattern": "^https://[A-Za-z0-9.-]+(:[0-9]{1,5})?(/[A-Za-z0-9_.~-]+){2,}/?$"
+		}
+	},
+	"licenses": [
+		"GPL-3.0-or-later",
+		"MIT",
+		"UNLICENSED"
+	],
+	"defaultLicense": "GPL-3.0-or-later",
+	"reservedNames": [
+		"shared-sdk",
+		"menu-sdk",
+		"source2-sdk",
+		"dota2-sdk",
+		"deadlock-sdk",
+		"cs2-sdk",
+		"octarine-core",
+		"node_modules",
+		"scripts",
+		"scripts_files",
+		"tools",
+		"src"
+	],
+	"games": [
+		"dota2",
+		"deadlock",
+		"cs2"
+	]
+}

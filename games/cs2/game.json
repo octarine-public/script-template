@@ -1,0 +1,85 @@
+{
+	"title": "Counter-Strike 2",
+	"sdkDir": "CS2SDK",
+	"menuTabs": [
+		"Misc",
+		"Visual"
+	],
+	"features": [
+		{
+			"id": "lifecycle",
+			"default": true,
+			"experimental": false,
+			"title": {
+				"en": "Events and lifecycle",
+				"ru": "События и жизненный цикл",
+				"zh": "事件与生命周期"
+			},
+			"description": {
+				"en": "Logs the match start and end and every hero that appears: how to listen to the game.",
+				"ru": "Пишет в консоль начало и конец матча и появление героев: как слушать события игры.",
+				"zh": "记录比赛开始、结束和出现的英雄：如何监听游戏事件。"
+			}
+		},
+		{
+			"id": "screen-panel",
+			"default": true,
+			"experimental": false,
+			"title": {
+				"en": "2D panel on the screen",
+				"ru": "2D-панель на экране",
+				"zh": "屏幕上的 2D 面板"
+			},
+			"description": {
+				"en": "A panel with the match time and your health: state counted per tick, drawn per frame.",
+				"ru": "Панель со временем матча и здоровьем: состояние считается по тику, рисуется по кадру.",
+				"zh": "显示比赛时间和生命值的面板：按 tick 计算状态，按帧绘制。"
+			}
+		},
+		{
+			"id": "world-marker",
+			"default": true,
+			"experimental": false,
+			"title": {
+				"en": "Drawing in the world",
+				"ru": "Рисование в мире",
+				"zh": "在世界中绘制"
+			},
+			"description": {
+				"en": "A ring above heroes, anchored to the world: projection and per-frame drawing.",
+				"ru": "Кольцо над героями, привязанное к миру: проекция и рисование по кадру.",
+				"zh": "固定在世界中的英雄头顶圆环：投影与逐帧绘制。"
+			}
+		},
+		{
+			"id": "command",
+			"default": false,
+			"experimental": false,
+			"title": {
+				"en": "A chat command by key",
+				"ru": "Команда в чат по клавише",
+				"zh": "按键发送聊天命令"
+			},
+			"description": {
+				"en": "Sends a greeting to the team chat by key, at most once in five seconds.",
+				"ru": "Отправляет приветствие в чат команды по клавише, не чаще раза в пять секунд.",
+				"zh": "按键向队伍聊天发送问候，五秒内最多一次。"
+			}
+		},
+		{
+			"id": "usercmd",
+			"default": false,
+			"experimental": true,
+			"title": {
+				"en": "A movement command (experimental)",
+				"ru": "Команда движения (экспериментально)",
+				"zh": "移动命令（实验性）"
+			},
+			"description": {
+				"en": "While a key is held, walks forward through UserCmdManager. Off until you turn it on.",
+				"ru": "Пока клавиша зажата, идёт вперёд через UserCmdManager. Выключено, пока не включите.",
+				"zh": "按住按键时通过 UserCmdManager 向前走。默认关闭。"
+			}
+		}
+	]
+}
