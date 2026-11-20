@@ -21,11 +21,11 @@ jobs:
       matrix:
         include:
           - game: dota2
-            sdk: dota2-sdk-types
+            sdk: Dota2SDK
           - game: deadlock
-            sdk: deadlock-sdk-types
+            sdk: DeadlockSDK
           - game: cs2
-            sdk: cs2-sdk-types
+            sdk: CS2SDK
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
