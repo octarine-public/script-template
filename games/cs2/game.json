@@ -16,9 +16,9 @@
 				"zh": "事件与生命周期"
 			},
 			"description": {
-				"en": "Logs the match start and end and every hero that appears: how to listen to the game.",
-				"ru": "Пишет в консоль начало и конец матча и появление героев: как слушать события игры.",
-				"zh": "记录比赛开始、结束和出现的英雄：如何监听游戏事件。"
+				"en": "Logs the match start and end and every player that appears: how to listen to the game.",
+				"ru": "Пишет в консоль начало и конец матча и появление игроков: как слушать события игры.",
+				"zh": "记录比赛开始、结束和出现的玩家：如何监听游戏事件。"
 			}
 		},
 		{
@@ -46,9 +46,9 @@
 				"zh": "在世界中绘制"
 			},
 			"description": {
-				"en": "A ring above heroes, anchored to the world: projection and per-frame drawing.",
-				"ru": "Кольцо над героями, привязанное к миру: проекция и рисование по кадру.",
-				"zh": "固定在世界中的英雄头顶圆环：投影与逐帧绘制。"
+				"en": "A ring above players, anchored to the world: projection and per-frame drawing.",
+				"ru": "Кольцо над игроками, привязанное к миру: проекция и рисование по кадру.",
+				"zh": "固定在世界中的玩家头顶圆环：投影与逐帧绘制。"
 			}
 		},
 		{

@@ -1,4 +1,4 @@
-// Renders a script from this template as the launcher does (octarine-client's scaffold package: Plan), for the
+// Renders a script from this template as the launcher does, for the
 // template's CI: the same layers, renames, substitutions escaped by the kind of file, merges and the composed
 // src/index.ts, byte for byte (the launcher's tests compare the two). No dependencies.
 //

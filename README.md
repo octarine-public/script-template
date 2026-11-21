@@ -11,7 +11,9 @@ executed.
   base; `games/<game>/features/<id>/files/`: a feature's whole files, `…/merge/`: JSON merged into the
   script's (translations).
 - `ai/`: the project rule, the core rules and the skills the launcher renders for the AI tools chosen;
-  a game's SDK repository may carry its own `ai/`, which then wins.
+  a game's SDK repository may carry its own `ai/`: when it has `ai/rules/core.md`, its core rules and
+  skills replace the template's as a whole (the template's are the fallback, without the game-specific
+  orders skill), and `project.md` stays the template's.
 
 A substitution in code stands only inside a string literal (`const X = "@@name@@"`), so the template
 itself type-checks as it is. `src/index.ts` is composed by the launcher from the features chosen.

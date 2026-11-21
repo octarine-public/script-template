@@ -7,5 +7,5 @@ runs. The SDK's declarations are in `@@sdkDir@@/`; the entry is `index.ts` → `
   feature imports both and returns early while `State.value` is false.
 - `src/features/<name>.ts` holds one feature; `src/index.ts` imports each one. A file nothing imports is
   left out of the build.
-- `scripts_files/translations/{ru,cn}.json` translate the menu: the key is the English text exactly as
+- `scripts_files/translations/{en,ru,cn}.json` translate the menu: the key is the English text exactly as
   the code writes it.

@@ -1,4 +1,4 @@
 {
 	"Log match events": "记录比赛事件",
-	"Writes the start and the end of a match and every hero that appears to the console": "将比赛的开始、结束以及出现的每个英雄写入控制台"
+	"Writes the start and the end of a match and every player that appears to the console": "将比赛的开始、结束以及出现的每个玩家写入控制台"
 }

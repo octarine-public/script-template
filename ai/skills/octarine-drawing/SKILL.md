@@ -1,14 +1,22 @@
 ---
 name: octarine-drawing
-description: Use when drawing anything: panels and text on the screen, shapes, markers above units, projecting world positions.
+description: Use when drawing anything (panels and text on the screen, shapes, markers above units) or projecting world positions to the screen.
 ---
 
 # Drawing
 
-- Draw only in the `Draw` event and only while `GameState.CanDrawOverlays`. Compute what to show on the
+- Draw only while `GameState.CanDrawOverlays`, in the pass that fits: `Draw` every frame, `Draw2D` once a
+  tick for overlays that change only with the game state, `WorldDraw` for `WorldDraw.Line`, `Polyline`,
+  `Ring`, `Polygon` (world units; they work only from a `WorldDraw` listener). Compute what to show on the
   tick and keep it in variables the draw reads.
-- `MenuSDK.Canvas` draws shapes and text; give each surface a stable name (`"<package>:panel"`). A
-  canvas on `MenuSDK.EPanelLayer.Screen` is a 2D overlay; the world variants anchor shapes to positions.
-- Scale sizes with the SDK's scale helpers (`ScaleWidth`, `ScaleHeight`) so they follow the resolution.
-- Reuse `Vector2`/`Vector3` objects with `SetVector`; do not allocate per frame.
+- `new MenuSDK.Canvas("<package>:<what>", MenuSDK.EPanelLayer.Screen)` is a 2D overlay. Without a layer the
+  canvas is on the world layer: anchor it with `canvas.AnchorWorld(x, y, z)` or
+  `canvas.PinEntity(entity.Handle, x, y, z)` (it follows the entity), and `canvas.Anchor()` resets it.
+  `MenuSDK.WorldCanvas` draws shapes at world positions (`Project`, `Circle`, `Ring`, `Polyline`). Give every
+  surface a stable name of its own.
+- A world position on the screen: `Source2SDK.Projection.WorldToScreenXYZ(x, y, z, out)` (false when it is
+  off screen).
+- Scale screen sizes with `Source2SDK.Renderer.ScaleWidth(w)` / `ScaleHeight(h)` so they follow the
+  resolution.
+- Reuse `Vector2` / `Vector3` objects with `SetVector`; do not allocate per frame.
 - Colors: `MenuSDK.HudColors` for the menu's palette, `new Color(r, g, b, a)` otherwise.

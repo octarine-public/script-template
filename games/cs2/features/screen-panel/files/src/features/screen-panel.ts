@@ -7,7 +7,7 @@ const TITLE = "@@scriptName@@"
 const shown = Page.AddToggle(
 	"Screen panel",
 	true,
-	"Shows the match time and your hero's health in the top left corner"
+	"Shows the match time and your health in the top left corner"
 )
 const canvas = new MenuSDK.Canvas(SURFACE, MenuSDK.EPanelLayer.Screen)
 const origin = new Vector2()
@@ -19,8 +19,8 @@ Events.on("PostDataUpdate", () => {
 	if (!State.value || !shown.value) {
 		return
 	}
-	const hero = LocalPlayer?.PlayerPawn
-	const health = hero === undefined ? "-" : `${Math.round(hero.HPPercent)}%`
+	const pawn = LocalPlayer?.PlayerPawn
+	const health = pawn === undefined ? "-" : `${Math.round(pawn.HPPercent)}%`
 	status = `${Math.formatTime(GameState.RawGameTime)}  HP ${health}`
 })
 
