@@ -31,8 +31,13 @@
 		"prettier": "^3.9.6",
 		"typescript": "^6.0.3"
 	},
+	"overrides": {
+		"madge": {
+			"typescript": "$typescript"
+		}
+	},
 	"engines": {
-		"node": ">=18"
+		"node": ">=20.19"
 	},
 	"octarineBundle": true,
 	"octarineMinimize": false,

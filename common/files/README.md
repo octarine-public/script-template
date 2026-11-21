@@ -9,9 +9,10 @@ An Octarine script for @@gameTitle@@, made from the launcher's template.
 - The launcher builds this folder whenever a file changes: save, then reload scripts in the client.
   A build that fails keeps the previous one running and shows a notification in the client.
 - `@@sdkDir@@/` holds the SDK's declarations (`.d.ts` only). Everything in them is global: nothing is
-  imported from the SDK. `npm run update-sdk` brings them up to date.
-- `npm install` once, then `npm run check`: types, lint, circular imports, and that every file is
-  reachable from `index.ts` (an unreachable file is left out of the build without a word).
+  imported from the SDK. `@@packageManager@@ run update-sdk` brings them up to date.
+- Node.js 20.19 or newer. `@@packageManager@@ install` once, then `@@packageManager@@ run check`: types,
+  lint, circular imports, and that every file is reachable from `index.ts` (an unreachable file is left
+  out of the build without a word).
 
 ## Layout
 

@@ -160,9 +160,13 @@ export function ciValues(game) {
     gameId: game,
     gameTitle: g.title,
     sdkDir: g.sdkDir,
-    scriptName: 'Template Check',
+    // The name and the description as long as template.json lets them be, wide characters too: a fresh script
+    // must pass its own lint whatever the author typed.
+    scriptName: 'Template Check 模板检查 — a name as long as allowed',
     packageName: 'template-check',
-    description: 'Checks "the" template <ok> & `$x` *a_b*',
+    description:
+      'Checks "the" template <ok> & `$x` *a_b* — and a description as long as the launcher takes, ' +
+      '中文说明也可以, so that a fresh script passes its own lint.',
     author: 'Octarine CI',
     repositoryUrl: 'https://github.com/octarine-public/template-check',
     license: json('template.json').defaultLicense,

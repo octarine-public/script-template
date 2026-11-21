@@ -1,6 +1,7 @@
 import { Page, State } from "../menu"
 
 const SURFACE = "@@packageName@@:panel"
+// prettier-ignore
 const TITLE = "@@scriptName@@"
 
 const shown = Page.AddToggle(
