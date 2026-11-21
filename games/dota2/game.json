@@ -32,9 +32,9 @@
 				"zh": "屏幕上的 2D 面板"
 			},
 			"description": {
-				"en": "A panel with the match time and your health: state counted per tick, drawn per frame.",
-				"ru": "Панель со временем матча и здоровьем: состояние считается по тику, рисуется по кадру.",
-				"zh": "显示比赛时间和生命值的面板：按 tick 计算状态，按帧绘制。"
+				"en": "A panel with the match time and your health: state counted per tick, drawn in the Draw2D pass that stays on screen.",
+				"ru": "Панель со временем матча и здоровьем: состояние считается по тику, рисуется в проходе Draw2D, который держится на экране.",
+				"zh": "显示比赛时间和生命值的面板：按 tick 计算状态，在会保留在屏幕上的 Draw2D 阶段绘制。"
 			}
 		},
 		{

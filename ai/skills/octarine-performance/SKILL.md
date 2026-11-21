@@ -10,5 +10,7 @@ description: Use when writing code that runs every frame or tick, or when the ga
   it, and do not copy it. Keep a set of your own only for a filtered subset (enemies in range, units with a
   modifier), updated on `EntityCreated` / `EntityDestroyed` or on the tick.
 - Loop with an index (`for (let i = 0, end = list.length; i < end; i++)`) over arrays the SDK returns.
-- An overlay that changes only with the game state draws in `Draw2D` (once a tick), not in `Draw`.
+- In Dota 2 a screen panel that changes only with the game state draws in `Draw2D` (about 30 times a
+  second, and it stays on screen between passes), not in `Draw`. In Deadlock and Counter-Strike 2 canvases
+  draw in `Draw`.
 - Return early as soon as the script, the feature or the overlay is off.

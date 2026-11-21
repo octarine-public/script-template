@@ -24,7 +24,9 @@ EventsSDK.on("PostDataUpdate", () => {
 	status = `${Math.formatTime(GameState.RawGameTime)}  HP ${health}`
 })
 
-EventsSDK.on("Draw", () => {
+// Draw2D runs about 30 times a second, and what it draws stays on screen until the next pass: a panel
+// that changes only with the game state costs that, not a frame's work. Not drawing in a pass takes it down.
+EventsSDK.on("Draw2D", () => {
 	if (!State.value || !shown.value || !GameState.CanDrawOverlays) {
 		return
 	}
